@@ -1,3 +1,7 @@
 .App {
   text-align: center;
 }
+
+header .user ul {
+  list-style: none;
+}
