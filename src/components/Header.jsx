@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = ({ user }) => {
   return (
-    <header>
+    <header className="main-header">
       <h1>Super Mega Awesome News</h1>
       <h2>
         The Superest Megaest Awesomest site on the planet for stories, news and

@@ -31,7 +31,7 @@ class ArticleList extends Component {
         />
       );
     return (
-      <main>
+      <main className="content">
         <ul>
           {this.state.articles.map((article) => {
             return (

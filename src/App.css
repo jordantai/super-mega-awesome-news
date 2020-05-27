@@ -1,7 +1,40 @@
-.App {
-  text-align: center;
+.wrapper {
+  display: flex;
+  justify-content: center;
 }
 
-header .user ul {
+header.main-header {
+  grid-area: header;
+  background-color: aquamarine;
+}
+
+nav.navbar {
+  grid-area: nav;
+  background-color: cadetblue;
+}
+
+main.content {
+  grid-area: main;
+  background-color: cornsilk;
+}
+
+.content h3 {
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'header header header'
+    'nav main main'
+    'footer footer footer';
+}
+
+ul,
+li {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }

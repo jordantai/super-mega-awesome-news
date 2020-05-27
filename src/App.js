@@ -15,12 +15,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Header user={this.state.user} />
-        <NavBar />
-        <Router>
-          <ArticleList path="/" />
-        </Router>
+      <div className="wrapper">
+        <div className="container">
+          <Header user={this.state.user} />
+          <NavBar />
+          <Router>
+            <ArticleList path="/" />
+          </Router>
+        </div>
       </div>
     );
   }
