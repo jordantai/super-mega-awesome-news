@@ -9,13 +9,20 @@ class ArticleList extends Component {
     isLoading: true,
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    const { topic_slug } = this.props;
+    if (prevProps.topic_slug !== topic_slug) {
+      this.getArticles();
+    }
+  }
+
   componentDidMount() {
     this.getArticles();
   }
 
   getArticles = () => {
-    console.log(this.props.topic_slug);
-    api.fetchArticles(this.props.topic_slug).then((articles) => {
+    const { topic_slug } = this.props;
+    api.fetchArticles(topic_slug).then((articles) => {
       this.setState({ articles, isLoading: false });
     });
   };

@@ -7,12 +7,6 @@ export const fetchTopics = () => {
   });
 };
 
-// export const fetchArticles = () => {
-//   return axios.get(`${baseURL}/articles`).then(({ data: { articles } }) => {
-//     return articles;
-//   });
-// };
-
 export const fetchArticles = (topic_slug) => {
   return axios
     .get(`${baseURL}/articles`, {
