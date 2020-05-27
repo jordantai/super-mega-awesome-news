@@ -10,7 +10,7 @@ header.main-header {
 
 nav.navbar {
   grid-area: nav;
-  background-color: cadetblue;
+  background-color: rgb(126, 223, 226);
 }
 
 main.content {
@@ -24,12 +24,12 @@ main.content {
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 3fr;
   grid-template-rows: auto;
   grid-template-areas:
-    'header header header'
-    'nav main main'
-    'footer footer footer';
+    'header header header header'
+    'nav main main main'
+    'footer footer footer footer';
 }
 
 ul,
