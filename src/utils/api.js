@@ -16,3 +16,11 @@ export const fetchArticles = (topic_slug) => {
       return articles;
     });
 };
+
+export const fetchArticle = (article_id) => {
+  return axios
+    .get(`${baseURL}/articles/${article_id}`)
+    .then(({ data: { article } }) => {
+      return article;
+    });
+};

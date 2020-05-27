@@ -4,6 +4,7 @@ import { Router } from '@reach/router';
 import Header from './components/Header';
 import NavBar from './components/NavBar';
 import ArticleList from './components/ArticleList';
+import Article from './components/Article';
 
 class App extends Component {
   state = {
@@ -22,6 +23,7 @@ class App extends Component {
           <Router>
             <ArticleList path="/" />
             <ArticleList path="/topic/:topic_slug/articles" />
+            <Article path="/articles/:article_id" />
           </Router>
         </div>
       </div>
