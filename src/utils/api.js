@@ -6,3 +6,9 @@ export const fetchTopics = () => {
     return topics;
   });
 };
+
+export const fetchArticles = () => {
+  return axios.get(`${baseURL}/articles`).then(({ data: { articles } }) => {
+    return articles;
+  });
+};
