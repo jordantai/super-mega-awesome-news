@@ -1,8 +1,21 @@
-import React from 'react';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+// import React, { Component } from 'react';
+// import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+// import Loader from 'react-loader-spinner';
 
-const Loader = () => {
-  return <p>LOADING...</p>;
-};
+// class Loader extends Component {
+//   render() {
+//     return (
+//       <div>
 
-export default Loader;
+//       </div>
+//     );
+//   }
+// }
+
+// export default Loader;
+
+// const Loader = () => {
+//   return <p>LOADING...</p>;
+// };
+
+// export default Loader;
