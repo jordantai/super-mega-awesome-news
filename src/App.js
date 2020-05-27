@@ -3,6 +3,7 @@ import './App.css';
 import { Router } from '@reach/router';
 import Header from './components/Header';
 import NavBar from './components/NavBar';
+import ArticleList from './components/ArticleList';
 
 class App extends Component {
   state = {
@@ -14,10 +15,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="App">
         <Header user={this.state.user} />
         <NavBar />
-        <Router></Router>
+        <Router>
+          <ArticleList path="/" />
+        </Router>
       </div>
     );
   }
