@@ -49,7 +49,7 @@ class Article extends Component {
             <h3>Comments</h3>
           </Link>
           <Router>
-            <CommentList path="comments" />
+            <CommentList path="comments" user={this.props.user} />
           </Router>
         </section>
       </main>

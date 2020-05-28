@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as api from '../utils/api';
 import CommentCard from './CommentCard';
 import Loader from 'react-loader-spinner';
+import CommentAdder from '../CommentAdder';
 
 class CommentList extends Component {
   state = {
@@ -33,16 +34,19 @@ class CommentList extends Component {
         />
       );
     return (
-      <ul>
-        {this.state.comments.map((comment) => {
-          console.log(comment);
-          return (
-            <li key={comment.comment_id} className="comment">
-              <CommentCard {...comment} />
-            </li>
-          );
-        })}
-      </ul>
+      <>
+        <CommentAdder user={this.props.user} />
+        <ul>
+          {this.state.comments.map((comment) => {
+            console.log(comment);
+            return (
+              <li key={comment.comment_id} className="comment">
+                <CommentCard {...comment} />
+              </li>
+            );
+          })}
+        </ul>
+      </>
     );
   }
 }

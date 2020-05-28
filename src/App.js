@@ -21,9 +21,12 @@ class App extends Component {
           <Header user={this.state.user} />
           <NavBar />
           <Router>
-            <ArticleList path="/" />
-            <ArticleList path="/topic/:topic_slug/articles" />
-            <Article path="/articles/:article_id/*" />
+            <ArticleList path="/" user={this.state.user} />
+            <ArticleList
+              path="/topic/:topic_slug/articles"
+              user={this.state.user}
+            />
+            <Article path="/articles/:article_id/*" user={this.state.user} />
           </Router>
         </div>
       </div>

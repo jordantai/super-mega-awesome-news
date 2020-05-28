@@ -10,7 +10,21 @@ export const fetchTopics = () => {
 export const fetchArticles = (topic_slug) => {
   return axios
     .get(`${baseURL}/articles`, {
-      params: { topic: topic_slug },
+      params: {
+        topic: topic_slug,
+      },
+    })
+    .then(({ data: { articles } }) => {
+      return articles;
+    });
+};
+
+export const fetchSortedArticles = () => {
+  return axios
+    .get(`${baseURL}/articles`, {
+      params: {
+        sort_by: 'comment_count',
+      },
     })
     .then(({ data: { articles } }) => {
       return articles;

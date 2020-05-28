@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as api from '../utils/api';
 import ArticleCard from './ArticleCard';
 import Loader from 'react-loader-spinner';
+//import SortArticles from './SortArticles';
 
 class ArticleList extends Component {
   state = {
@@ -27,6 +28,13 @@ class ArticleList extends Component {
     });
   };
 
+  handleClick = (event) => {
+    console.log('clicked');
+    api.fetchSortedArticles().then((articles) => {
+      this.setState({ articles, isLoading: false });
+    });
+  };
+
   render() {
     if (this.state.isLoading)
       return (
@@ -40,6 +48,8 @@ class ArticleList extends Component {
       );
     return (
       <main className="content">
+        {/* <SortArticles articles={this.state.articles} /> */}
+        <button onClick={this.handleClick}>Sort by Comment Count</button>
         <ul>
           {this.state.articles.map((article) => {
             return (
