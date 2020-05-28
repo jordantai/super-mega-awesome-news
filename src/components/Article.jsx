@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import * as api from '../utils/api';
+import { Router, Link } from '@reach/router';
+import CommentList from './CommentList';
 
 class Article extends Component {
   state = {
@@ -30,6 +32,7 @@ class Article extends Component {
       created_at,
       comment_count,
     } = this.state.article;
+    const formattedDate = new Date(created_at);
     return (
       <main className="content">
         <article>
@@ -38,9 +41,17 @@ class Article extends Component {
           <p>Votes: {votes}</p>
           <p>Topic: {topic}</p>
           <p>Author: {author}</p>
-          <p>Posted: {created_at}</p>
+          <p>Posted: {formattedDate.toString()}</p>
           <p>Comments: {comment_count}</p>
         </article>
+        <section className="comments">
+          <Link to="comments">
+            <h3>Comments</h3>
+          </Link>
+          <Router>
+            <CommentList path="comments" />
+          </Router>
+        </section>
       </main>
     );
   }

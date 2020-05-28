@@ -23,7 +23,7 @@ class App extends Component {
           <Router>
             <ArticleList path="/" />
             <ArticleList path="/topic/:topic_slug/articles" />
-            <Article path="/articles/:article_id" />
+            <Article path="/articles/:article_id/*" />
           </Router>
         </div>
       </div>

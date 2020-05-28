@@ -18,6 +18,18 @@ main.content {
   background-color: cornsilk;
 }
 
+main.content .comments {
+  background-color: darkgrey;
+  color: white;
+}
+
+.comments .comment {
+  background-color: darkred;
+  color: white;
+  margin: 10px;
+  padding: 10px;
+}
+
 .content h3 {
   margin: 0;
 }
