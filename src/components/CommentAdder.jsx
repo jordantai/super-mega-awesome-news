@@ -18,7 +18,12 @@ class CommentAdder extends Component {
     event.preventDefault();
     const newComment = this.state;
     const { article_id } = this.props;
-    api.postComment(article_id, newComment).then();
+    api.postComment(article_id, newComment).then(({ data: { comment } }) => {
+      const postedComment = comment;
+      this.props.addCommentToState(postedComment);
+    });
+    // reset comment state to remove comment text
+    this.setState({ body: '' });
   };
 
   render() {

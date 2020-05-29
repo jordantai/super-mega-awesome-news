@@ -21,6 +21,14 @@ class CommentList extends Component {
     });
   };
 
+  addCommentToState = (newComment) => {
+    this.setState((currentState) => {
+      return {
+        comments: [newComment, ...currentState.comments],
+      };
+    });
+  };
+
   render() {
     console.log('rendering...');
     const { user, article_id } = this.props;
@@ -36,7 +44,11 @@ class CommentList extends Component {
       );
     return (
       <>
-        <CommentAdder user={user} article_id={article_id} />
+        <CommentAdder
+          user={user}
+          article_id={article_id}
+          addCommentToState={this.addCommentToState}
+        />
         <ul>
           {this.state.comments.map((comment) => {
             return (
