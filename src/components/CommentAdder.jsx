@@ -41,6 +41,7 @@ class CommentAdder extends Component {
             cols="60"
             rows="5"
             value={body}
+            required
           />
         </label>
         <button>Post</button>

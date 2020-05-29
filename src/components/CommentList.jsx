@@ -31,8 +31,9 @@ class CommentList extends Component {
 
   render() {
     console.log('rendering...');
+    const { isLoading, comments } = this.state;
     const { user, article_id } = this.props;
-    if (this.state.isLoading)
+    if (isLoading)
       return (
         <Loader
           type="BallTriangle"
@@ -50,10 +51,13 @@ class CommentList extends Component {
           addCommentToState={this.addCommentToState}
         />
         <ul>
-          {this.state.comments.map((comment) => {
+          {comments.map((comment) => {
             return (
               <li key={comment.comment_id} className="comment">
                 <CommentCard {...comment} />
+                {user.username === comment.author && (
+                  <button>Delete Comment</button>
+                )}
               </li>
             );
           })}
