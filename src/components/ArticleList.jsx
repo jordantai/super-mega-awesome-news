@@ -28,11 +28,13 @@ class ArticleList extends Component {
     });
   };
 
-  handleClick = (event) => {
+  handleClick = (sort_by) => {
     console.log('clicked');
-    api.fetchSortedArticles().then((articles) => {
-      this.setState({ articles, isLoading: false });
-    });
+    // getArticles... where is the sort_by coming from
+
+    // api.fetchArticles('comment_count').then((articles) => {
+    //   this.setState({ articles, isLoading: false });
+    // });
   };
 
   render() {

@@ -29,6 +29,23 @@ class CommentList extends Component {
     });
   };
 
+  handleCommentDelete = (comment_id) => {
+    console.log('clicked', comment_id);
+    // make api delete request and remove comment from api
+    api.deleteComment(comment_id).then((response) => {
+      console.log('comment deleted');
+      // remove deleted review from state
+      this.setState(({ comments }) => {
+        const updatedComments = comments.filter((comment) => {
+          return comment.comment_id !== comment_id;
+        });
+        return {
+          comments: updatedComments,
+        };
+      });
+    });
+  };
+
   render() {
     console.log('rendering...');
     const { isLoading, comments } = this.state;
@@ -56,7 +73,13 @@ class CommentList extends Component {
               <li key={comment.comment_id} className="comment">
                 <CommentCard {...comment} />
                 {user.username === comment.author && (
-                  <button>Delete Comment</button>
+                  <button
+                    onClick={() => {
+                      this.handleCommentDelete(comment.comment_id);
+                    }}
+                  >
+                    Delete Comment
+                  </button>
                 )}
               </li>
             );

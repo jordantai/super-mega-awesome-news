@@ -7,23 +7,12 @@ export const fetchTopics = () => {
   });
 };
 
-export const fetchArticles = (topic_slug) => {
+export const fetchArticles = (topic_slug, sort_by) => {
   return axios
     .get(`${baseURL}/articles`, {
       params: {
         topic: topic_slug,
-      },
-    })
-    .then(({ data: { articles } }) => {
-      return articles;
-    });
-};
-
-export const fetchSortedArticles = () => {
-  return axios
-    .get(`${baseURL}/articles`, {
-      params: {
-        sort_by: 'comment_count',
+        sort_by: sort_by,
       },
     })
     .then(({ data: { articles } }) => {
@@ -57,4 +46,8 @@ export const postComment = (article_id, newComment) => {
       // });
       .then()
   );
+};
+
+export const deleteComment = (comment_id) => {
+  return axios.delete(`${baseURL}/comments/${comment_id}`);
 };
