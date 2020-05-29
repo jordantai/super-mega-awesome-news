@@ -46,3 +46,13 @@ export const fetchComments = (article_id) => {
       return comments;
     });
 };
+
+export const postComment = (article_id, newComment) => {
+  return axios
+    .post(`${baseURL}/articles/${article_id}/comments`, newComment)
+    .then((response) => {
+      console.log(response);
+      const postedComment = response.data.comment;
+      return postedComment;
+    });
+};

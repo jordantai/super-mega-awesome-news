@@ -9,7 +9,7 @@ import Article from './components/Article';
 class App extends Component {
   state = {
     user: {
-      username: 'jordan101',
+      username: 'jessjelly',
       avatar_url: 'https://img.icons8.com/color/30/000000/avatar.png',
     },
   };
