@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
+import VoteUpdater from './VoteUpdater';
 
 const ArticleCard = ({
   article_id,
@@ -17,10 +18,10 @@ const ArticleCard = ({
         <h3>{title}</h3>
       </Link>
       <p>{body}</p>
-      <p>Votes: {votes}</p>
       <p>Topic: {topic}</p>
       <p>Posted: {formattedDate.toString()}</p>
       <p>Comment Count: {comment_count}</p>
+      <VoteUpdater votes={votes} article_id={article_id} />
     </article>
   );
 };
