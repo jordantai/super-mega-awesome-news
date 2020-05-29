@@ -9,9 +9,14 @@ class CommentAdder extends Component {
       <form>
         <p>{username} post a message</p>
         <label htmlFor="body"></label>
-        <textarea name="body" id="" cols="60" rows="5">
-          Message...
-        </textarea>
+        <textarea
+          name="body"
+          id=""
+          cols="60"
+          rows="5"
+          value="Comment..."
+        ></textarea>
+        <button>Post</button>
       </form>
     );
   }
