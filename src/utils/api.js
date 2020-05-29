@@ -7,12 +7,13 @@ export const fetchTopics = () => {
   });
 };
 
-export const fetchArticles = (topic_slug, sort_by) => {
+export const fetchArticles = (topic_slug, sort_by, order) => {
   return axios
     .get(`${baseURL}/articles`, {
       params: {
         topic: topic_slug,
         sort_by: sort_by,
+        order: order,
       },
     })
     .then(({ data: { articles } }) => {

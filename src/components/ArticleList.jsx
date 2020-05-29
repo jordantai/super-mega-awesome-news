@@ -8,11 +8,19 @@ class ArticleList extends Component {
   state = {
     articles: [],
     isLoading: true,
+    sort_by: '',
+    order: '',
   };
 
   componentDidUpdate(prevProps, prevState) {
     const { topic_slug } = this.props;
     if (prevProps.topic_slug !== topic_slug) {
+      this.getArticles();
+    }
+    if (prevState.sort_by !== this.state.sort_by) {
+      this.getArticles();
+    }
+    if (prevState.order !== this.state.order) {
       this.getArticles();
     }
   }
@@ -21,23 +29,20 @@ class ArticleList extends Component {
     this.getArticles();
   }
 
-  getArticles = () => {
+  getArticles = (sort_by, order) => {
     const { topic_slug } = this.props;
-    api.fetchArticles(topic_slug).then((articles) => {
+    api.fetchArticles(topic_slug, sort_by, order).then((articles) => {
       this.setState({ articles, isLoading: false });
     });
   };
 
-  handleClick = (sort_by) => {
-    console.log('clicked');
-    // getArticles... where is the sort_by coming from
-
-    // api.fetchArticles('comment_count').then((articles) => {
-    //   this.setState({ articles, isLoading: false });
-    // });
+  handleSortByClick = (sort_by, order) => {
+    console.log('clicked', sort_by, order);
+    this.getArticles(sort_by, order);
   };
 
   render() {
+    console.log('rendering');
     if (this.state.isLoading)
       return (
         <Loader
@@ -50,8 +55,48 @@ class ArticleList extends Component {
       );
     return (
       <main className="content">
-        {/* <SortArticles articles={this.state.articles} /> */}
-        <button onClick={this.handleClick}>Sort by Comment Count</button>
+        <button
+          onClick={() => {
+            this.handleSortByClick('comment_count', 'asc');
+          }}
+        >
+          Sort by comment count ascending
+        </button>
+        <button
+          onClick={() => {
+            this.handleSortByClick('comment_count', 'desc');
+          }}
+        >
+          Sort by comment count descending
+        </button>
+        <button
+          onClick={() => {
+            this.handleSortByClick('votes', 'asc');
+          }}
+        >
+          Sort by votes ascending
+        </button>
+        <button
+          onClick={() => {
+            this.handleSortByClick('votes', 'desc');
+          }}
+        >
+          Sort by votes descending
+        </button>
+        <button
+          onClick={() => {
+            this.handleSortByClick('created_at', 'asc');
+          }}
+        >
+          Sort by date posted ascending
+        </button>
+        <button
+          onClick={() => {
+            this.handleSortByClick('created_at', 'desc');
+          }}
+        >
+          Sort by date posted descending
+        </button>
         <ul>
           {this.state.articles.map((article) => {
             return (
