@@ -47,8 +47,8 @@ export const deleteComment = (comment_id) => {
   return axios.delete(`${baseURL}/comments/${comment_id}`);
 };
 
-export const patchUserVotesById = (article_id, newVote) => {
-  return axios.patch(`${baseURL}/articles/${article_id}`, {
+export const patchUserVotesById = (path, article_id, newVote) => {
+  return axios.patch(`${baseURL}/${path}/${article_id}`, {
     inc_votes: newVote,
   });
 };

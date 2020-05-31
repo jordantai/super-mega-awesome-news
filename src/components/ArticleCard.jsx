@@ -21,7 +21,7 @@ const ArticleCard = ({
       <p>Topic: {topic}</p>
       <p>Posted: {formattedDate.toString()}</p>
       <p>Comment Count: {comment_count}</p>
-      <VoteUpdater votes={votes} article_id={article_id} />
+      <VoteUpdater votes={votes} id={article_id} path={'articles'} />
     </article>
   );
 };

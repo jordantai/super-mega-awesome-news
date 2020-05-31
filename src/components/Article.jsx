@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as api from '../utils/api';
 import { Router, Link } from '@reach/router';
 import CommentList from './CommentList';
+import VoteUpdater from './VoteUpdater';
 
 class Article extends Component {
   state = {
@@ -24,6 +25,7 @@ class Article extends Component {
   render() {
     console.log('rendering...');
     const {
+      article_id,
       title,
       body,
       votes,
@@ -38,11 +40,11 @@ class Article extends Component {
         <article>
           <h3>{title}</h3>
           <p>{body}</p>
-          <p>Votes: {votes}</p>
           <p>Topic: {topic}</p>
           <p>Author: {author}</p>
           <p>Posted: {formattedDate.toString()}</p>
           <p>Comments: {comment_count}</p>
+          <VoteUpdater votes={votes} article_id={article_id} />
         </article>
         <section className="comments">
           <Link to="comments">

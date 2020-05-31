@@ -5,6 +5,7 @@ class VoteUpdater extends Component {
   // add a state var for current users vote count
   state = {
     userVotes: 0,
+    err: null,
   };
 
   handleVoteChange = (event) => {
@@ -23,13 +24,20 @@ class VoteUpdater extends Component {
       };
     });
     // make api request
-    const { article_id } = this.props;
-    api.patchUserVotesById(article_id, newVote);
+    const { path, id } = this.props;
+    api.patchUserVotesById(path, id, newVote).catch((err) => {
+      this.setState(({ userVotes }) => {
+        return {
+          userVotes: userVotes + newVote,
+          err: 'Oops something went wrong with the vote',
+        };
+      });
+    });
   };
 
   render() {
     const { votes } = this.props;
-    const { userVotes } = this.state;
+    const { userVotes, err } = this.state;
     return (
       <>
         <p>Votes: {votes + userVotes}</p>
@@ -43,6 +51,7 @@ class VoteUpdater extends Component {
             ↓
           </span>
         </button>
+        {err && <p>{err}</p>}
       </>
     );
   }
