@@ -38,17 +38,17 @@ export const fetchComments = (article_id) => {
 };
 
 export const postComment = (article_id, newComment) => {
-  return (
-    axios
-      .post(`${baseURL}/articles/${article_id}/comments`, newComment)
-      // .then((response) => {
-      //   const postedComment = response.data.comment;
-      //   return postedComment;
-      // });
-      .then()
-  );
+  return axios
+    .post(`${baseURL}/articles/${article_id}/comments`, newComment)
+    .then();
 };
 
 export const deleteComment = (comment_id) => {
   return axios.delete(`${baseURL}/comments/${comment_id}`);
+};
+
+export const patchUserVotesById = (article_id, newVote) => {
+  return axios.patch(`${baseURL}/articles/${article_id}`, {
+    inc_votes: newVote,
+  });
 };
