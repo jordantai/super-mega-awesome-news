@@ -5,6 +5,7 @@ import Header from './components/Header';
 import NavBar from './components/NavBar';
 import ArticleList from './components/ArticleList';
 import Article from './components/Article';
+import ErrorDisplay from './components/ErrorDisplay';
 
 class App extends Component {
   state = {
@@ -27,6 +28,7 @@ class App extends Component {
               user={this.state.user}
             />
             <Article path="/articles/:article_id/*" user={this.state.user} />
+            <ErrorDisplay default />
           </Router>
         </div>
       </div>

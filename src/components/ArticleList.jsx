@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as api from '../utils/api';
 import ArticleCard from './ArticleCard';
 import Loader from 'react-loader-spinner';
+import ErrorDisplay from './ErrorDisplay';
 //import SortArticles from './SortArticles';
 
 class ArticleList extends Component {
@@ -10,6 +11,7 @@ class ArticleList extends Component {
     isLoading: true,
     sort_by: '',
     order: '',
+    err: '',
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -31,9 +33,14 @@ class ArticleList extends Component {
 
   getArticles = (sort_by, order) => {
     const { topic_slug } = this.props;
-    api.fetchArticles(topic_slug, sort_by, order).then((articles) => {
-      this.setState({ articles, isLoading: false });
-    });
+    api
+      .fetchArticles(topic_slug, sort_by, order)
+      .then((articles) => {
+        this.setState({ articles, isLoading: false });
+      })
+      .catch((err) => {
+        this.setState({ err: err.response.data.msg, isLoading: false });
+      });
   };
 
   handleSortByClick = (sort_by, order) => {
@@ -43,7 +50,8 @@ class ArticleList extends Component {
 
   render() {
     console.log('rendering');
-    if (this.state.isLoading)
+    const { isLoading, err } = this.state;
+    if (isLoading)
       return (
         <Loader
           type="BallTriangle"
@@ -53,6 +61,7 @@ class ArticleList extends Component {
           timeout={6000}
         />
       );
+    if (err) return <ErrorDisplay msg={err} />;
     return (
       <main className="content">
         <button
