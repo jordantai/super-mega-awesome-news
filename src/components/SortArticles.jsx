@@ -7,17 +7,6 @@ class SortArticles extends Component {
     isLoading: true,
   };
 
-  // componentDidMount() {
-  //   this.getArticles();
-  // }
-
-  // getArticles = () => {
-  //   const { created_at } = this.props;
-  //   api.fetchArticles(created_at).then((articles) => {
-  //     this.setState({ articles, isLoading: false });
-  //   });
-  // };
-
   handleClick = (event) => {
     const { created_at } = this.props;
     api.fetchArticles(created_at).then((articles) => {

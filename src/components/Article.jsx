@@ -14,7 +14,6 @@ class Article extends Component {
   };
 
   componentDidMount() {
-    console.log('mounted');
     this.getArticle();
   }
 
@@ -31,7 +30,6 @@ class Article extends Component {
   };
 
   render() {
-    console.log('rendering...');
     const {
       article_id,
       title,

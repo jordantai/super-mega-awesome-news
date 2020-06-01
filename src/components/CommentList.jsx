@@ -30,11 +30,7 @@ class CommentList extends Component {
   };
 
   handleCommentDelete = (comment_id) => {
-    console.log('clicked', comment_id);
-    // make api delete request and remove comment from api
     api.deleteComment(comment_id).then((response) => {
-      console.log('comment deleted');
-      // remove deleted review from state
       this.setState(({ comments }) => {
         const updatedComments = comments.filter((comment) => {
           return comment.comment_id !== comment_id;
@@ -47,7 +43,6 @@ class CommentList extends Component {
   };
 
   render() {
-    console.log('rendering...');
     const { isLoading, comments } = this.state;
     const { user, article_id } = this.props;
     if (isLoading)

@@ -32,7 +32,7 @@ class CommentAdder extends Component {
     const username = user.username;
     return (
       <form onSubmit={this.handleSubmitForm}>
-        <p>{username} post a message</p>
+        <label htmlFor="username">{username} post a message</label>
         <label htmlFor="body">
           <textarea
             onChange={this.handleInputChange}

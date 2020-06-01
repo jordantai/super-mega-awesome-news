@@ -5,7 +5,7 @@
 
 header.main-header {
   grid-area: header;
-  background-color: aquamarine;
+  font-family: 'Fredoka One', cursive;
 }
 
 nav.navbar {

@@ -36,7 +36,7 @@ class ArticleList extends Component {
     api
       .fetchArticles(topic_slug, sort_by, order)
       .then((articles) => {
-        this.setState({ articles, isLoading: false });
+        this.setState({ articles, isLoading: false, err: '' });
       })
       .catch((err) => {
         this.setState({ err: err.response.data.msg, isLoading: false });
@@ -44,12 +44,10 @@ class ArticleList extends Component {
   };
 
   handleSortByClick = (sort_by, order) => {
-    console.log('clicked', sort_by, order);
     this.getArticles(sort_by, order);
   };
 
   render() {
-    console.log('rendering');
     const { isLoading, err } = this.state;
     if (isLoading)
       return (
