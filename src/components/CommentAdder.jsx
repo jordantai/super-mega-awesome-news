@@ -22,7 +22,6 @@ class CommentAdder extends Component {
       const postedComment = comment;
       this.props.addCommentToState(postedComment);
     });
-    // reset comment state to remove comment text
     this.setState({ body: '' });
   };
 
@@ -32,8 +31,8 @@ class CommentAdder extends Component {
     const username = user.username;
     return (
       <form onSubmit={this.handleSubmitForm}>
-        <label htmlFor="username">{username} post a message</label>
         <label htmlFor="body">
+          {username} post a message
           <textarea
             onChange={this.handleInputChange}
             name="body"
