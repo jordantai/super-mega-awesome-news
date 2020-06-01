@@ -3,11 +3,13 @@ import * as api from '../utils/api';
 import CommentCard from './CommentCard';
 import Loader from 'react-loader-spinner';
 import CommentAdder from './CommentAdder';
+import ErrorDisplay from './ErrorDisplay';
 
 class CommentList extends Component {
   state = {
     comments: [],
     isLoading: true,
+    err: '',
   };
 
   componentDidMount() {
@@ -16,9 +18,14 @@ class CommentList extends Component {
 
   getComments = () => {
     const { article_id } = this.props;
-    api.fetchComments(article_id).then((comments) => {
-      this.setState({ comments, isLoading: false });
-    });
+    api
+      .fetchComments(article_id)
+      .then((comments) => {
+        this.setState({ comments, isLoading: false, err: '' });
+      })
+      .catch((err) => {
+        this.setState({ err: err.response.data.msg, isLoading: false });
+      });
   };
 
   addCommentToState = (newComment) => {
@@ -43,7 +50,7 @@ class CommentList extends Component {
   };
 
   render() {
-    const { isLoading, comments } = this.state;
+    const { isLoading, comments, err } = this.state;
     const { user, article_id } = this.props;
     if (isLoading)
       return (
@@ -55,6 +62,7 @@ class CommentList extends Component {
           timeout={6000}
         />
       );
+    if (err) return <ErrorDisplay msg={err} />;
     return (
       <>
         <CommentAdder
