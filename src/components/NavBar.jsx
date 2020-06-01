@@ -31,12 +31,16 @@ class NavBar extends Component {
       <nav className="navbar">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <button>
+              <Link to="/">Home</Link>
+            </button>
           </li>
           {this.state.topics.map(({ slug, description }) => {
             return (
               <li key={slug}>
-                <Link to={`/topic/${slug}/articles`}>{description}</Link>
+                <button>
+                  <Link to={`/topic/${slug}/articles`}>{description}</Link>
+                </button>
               </li>
             );
           })}
