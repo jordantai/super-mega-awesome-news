@@ -17,6 +17,12 @@ header.main-header {
   grid-area: header;
   font-family: 'Fredoka One', cursive;
   display: flex;
+  background-color: #d96c9f;
+  margin: 0 -10px 15px -10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  position: sticky;
+  top: 0;
 }
 
 header.main-header .logo {
@@ -66,7 +72,7 @@ nav.navbar ul {
   padding: 10px;
   margin-right: 10px;
   position: sticky;
-  top: 0;
+  top: 90px;
   background-color: #f29999;
   border: solid 3px #1b1159;
   border-radius: 5px;
@@ -81,9 +87,12 @@ nav.navbar a {
 
 main.content {
   grid-area: main;
+  color: white;
 }
 
 main.content .comments {
+  background-color: #251973;
+  color: white;
 }
 
 .comments .comment {
