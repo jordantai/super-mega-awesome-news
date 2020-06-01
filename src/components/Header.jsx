@@ -9,13 +9,11 @@ const Header = ({ user }) => {
         articles!
       </h2>
       <section className="user">
-        <ul>
-          <li>Logged in</li>
-          <li>
-            <img src={user.avatar_url} alt="user avatar" />
-          </li>
-          <li>{user.username}</li>
-        </ul>
+        <p>Logged in</p>
+        <p>
+          <img src={user.avatar_url} alt="user avatar" />
+        </p>
+        <p>{user.username}</p>
       </section>
     </header>
   );

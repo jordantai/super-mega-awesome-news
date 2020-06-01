@@ -16,13 +16,11 @@ class ArticleList extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const { topic_slug } = this.props;
-    if (prevProps.topic_slug !== topic_slug) {
-      this.getArticles();
-    }
-    if (prevState.sort_by !== this.state.sort_by) {
-      this.getArticles();
-    }
-    if (prevState.order !== this.state.order) {
+    const { sort_by, order } = this.state;
+    const topicSlugHasChanged = prevProps.topic_slug !== topic_slug;
+    const sortByHasChanged = prevState.sort_by !== sort_by;
+    const orderHasChanged = prevState.sort_by !== order;
+    if (topicSlugHasChanged || sortByHasChanged || orderHasChanged) {
       this.getArticles();
     }
   }

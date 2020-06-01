@@ -8,20 +8,26 @@ class VoteUpdater extends Component {
   };
 
   handleVoteChange = (newVote) => {
-    this.setState(({ userVotes }) => {
-      return {
-        userVotes: userVotes + newVote,
-      };
-    });
-    const { path, id } = this.props;
-    api.patchUserVotesById(path, id, newVote).catch((err) => {
+    if (newVote !== 0) {
       this.setState(({ userVotes }) => {
         return {
-          userVotes: userVotes - newVote,
-          err: 'Oops something went wrong with the vote',
+          userVotes: userVotes + newVote,
         };
       });
-    });
+      const { path, id } = this.props;
+      api.patchUserVotesById(path, id, newVote).catch((err) => {
+        this.setState(({ userVotes }) => {
+          return {
+            userVotes: userVotes - newVote,
+            err: 'Oops something went wrong with the vote',
+          };
+        });
+      });
+    } else {
+      this.setState(() => {
+        return { userVotes: 0 };
+      });
+    }
   };
 
   render() {
@@ -50,6 +56,13 @@ class VoteUpdater extends Component {
           <span role="img" aria-label="down arrow">
             ↓
           </span>
+        </button>
+        <button
+          onClick={() => {
+            this.handleVoteChange(0);
+          }}
+        >
+          Undo
         </button>
         {err && <p>{err}</p>}
       </>
