@@ -18,10 +18,10 @@ header.main-header {
   font-family: 'Fredoka One', cursive;
   display: flex;
   background-color: #d96c9f;
-  margin: 0 -10px 15px -10px;
-  padding-left: 10px;
-  padding-bottom: 10px;
+  margin: 0 -9999rem;
+  padding: 0.25em 9999rem;
   position: sticky;
+  position: -webkit-sticky;
   top: 0;
 }
 
@@ -73,7 +73,7 @@ nav.navbar ul {
   margin-right: 10px;
   position: sticky;
   top: 90px;
-  background-color: #f29999;
+  background-color: #7833a6;
   border: solid 3px #1b1159;
   border-radius: 5px;
   color: #251973;
@@ -88,10 +88,12 @@ nav.navbar a {
 main.content {
   grid-area: main;
   color: white;
+  padding: 20px 10px 10px 10px;
+  background-color: #251973;
 }
 
 main.content .comments {
-  background-color: #251973;
+  background-color: #f29999;
   color: white;
 }
 
