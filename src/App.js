@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import ArticleList from './components/ArticleList';
 import Article from './components/Article';
 import ErrorDisplay from './components/ErrorDisplay';
+import { Grid } from '@material-ui/core';
 
 class App extends Component {
   state = {
@@ -18,18 +19,22 @@ class App extends Component {
   render() {
     const { user } = this.state;
     return (
-      <div className="wrapper">
-        <div className="container">
-          <Header user={user} />
-          <NavBar />
-          <Router>
-            <ArticleList path="/" user={user} />
-            <ArticleList path="/topic/:topic_slug/articles" user={user} />
-            <Article path="/articles/:article_id/*" user={user} />
-            <ErrorDisplay default />
-          </Router>
-        </div>
-      </div>
+      <Grid container justify="center">
+        <Header user={user} />
+        <Grid container>
+          <Grid item xs={3}>
+            <NavBar />
+          </Grid>
+          <Grid item xs={9}>
+            <Router>
+              <ArticleList path="/" user={user} />
+              <ArticleList path="/topic/:topic_slug/articles" user={user} />
+              <Article path="/articles/:article_id/*" user={user} />
+              <ErrorDisplay default />
+            </Router>
+          </Grid>
+        </Grid>
+      </Grid>
     );
   }
 }
