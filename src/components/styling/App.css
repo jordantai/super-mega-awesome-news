@@ -31,6 +31,10 @@ nav.navbar button {
   border: 1px solid #569cda;
 }
 
+main.content {
+  margin: 20px;
+}
+
 /* .wrapper {
   display: flex;
   justify-content: center;
@@ -117,13 +121,6 @@ nav.navbar li {
 }
 nav.navbar a {
   text-decoration: none;
-}
-
-main.content {
-  grid-area: main;
-  color: white;
-  padding: 20px 10px 10px 10px;
-  background-color: #251973;
 }
 
 main.content .comments {

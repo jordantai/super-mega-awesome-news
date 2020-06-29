@@ -61,56 +61,62 @@ class ArticleList extends Component {
     if (err) return <ErrorDisplay msg={err} />;
     return (
       <main className="content">
-        <button
-          onClick={() => {
-            this.handleSortByClick('comment_count', 'asc');
-          }}
-        >
-          Sort by comment count ascending
-        </button>
-        <button
-          onClick={() => {
-            this.handleSortByClick('comment_count', 'desc');
-          }}
-        >
-          Sort by comment count descending
-        </button>
-        <button
-          onClick={() => {
-            this.handleSortByClick('votes', 'asc');
-          }}
-        >
-          Sort by votes ascending
-        </button>
-        <button
-          onClick={() => {
-            this.handleSortByClick('votes', 'desc');
-          }}
-        >
-          Sort by votes descending
-        </button>
-        <button
-          onClick={() => {
-            this.handleSortByClick('created_at', 'asc');
-          }}
-        >
-          Sort by date posted ascending
-        </button>
-        <button
-          onClick={() => {
-            this.handleSortByClick('created_at', 'desc');
-          }}
-        >
-          Sort by date posted descending
-        </button>
+        <Grid item container xs={12}>
+          <button
+            onClick={() => {
+              this.handleSortByClick('comment_count', 'asc');
+            }}
+          >
+            Sort by comment count ascending
+          </button>
+          <button
+            onClick={() => {
+              this.handleSortByClick('comment_count', 'desc');
+            }}
+          >
+            Sort by comment count descending
+          </button>
+          <button
+            onClick={() => {
+              this.handleSortByClick('votes', 'asc');
+            }}
+          >
+            Sort by votes ascending
+          </button>
+          <button
+            onClick={() => {
+              this.handleSortByClick('votes', 'desc');
+            }}
+          >
+            Sort by votes descending
+          </button>
+          <button
+            onClick={() => {
+              this.handleSortByClick('created_at', 'asc');
+            }}
+          >
+            Sort by date posted ascending
+          </button>
+          <button
+            onClick={() => {
+              this.handleSortByClick('created_at', 'desc');
+            }}
+          >
+            Sort by date posted descending
+          </button>
+        </Grid>
         <ul>
-          {this.state.articles.map((article) => {
-            return (
-              <li key={article.article_id}>
-                <ArticleCard {...article} />
-              </li>
-            );
-          })}
+          <Grid item xs={12}>
+            {this.state.articles.map((article) => {
+              return (
+                <li key={article.article_id}>
+                  <Paper>
+                    <ArticleCard {...article} />
+                  </Paper>
+                </li>
+              );
+            })}
+          </Grid>
         </ul>
       </main>
     );
