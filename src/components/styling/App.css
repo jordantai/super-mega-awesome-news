@@ -1,6 +1,34 @@
-.navbar {
-  position: relative;
-  top: 40px;
+.main-header .app-bar {
+  background: linear-gradient(
+    to bottom,
+    rgb(243, 63, 22) 0%,
+    rgba(191, 49, 17, 1) 100%
+  );
+}
+
+nav.navbar {
+  margin: 100px 0 20px 20px;
+  color: white;
+}
+
+nav.navbar button {
+  margin-right: 10px;
+}
+
+.router-div {
+  width: 100%;
+}
+
+.topic-list {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.topic-list .topic-card {
+  /* background: linear-gradient(0deg, #2f5373 30%, #4b86b9 90%); */
+  background-color: #2f5373;
+  color: #fff;
+  border: 1px solid #569cda;
 }
 
 /* .wrapper {
@@ -39,6 +67,7 @@ header.main-header .logo {
   border-radius: 5px;
   padding: 5px;
   color: #7833a6;
+  flex-grow: 1;
 }
 
 /* header.main-header a {
