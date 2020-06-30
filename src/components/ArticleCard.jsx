@@ -14,23 +14,23 @@ const ArticleCard = ({
 }) => {
   const formattedDate = new Date(created_at);
   return (
-    <article>
-      <Link to={`/articles/${article_id}`}>
+    <Link to={`/articles/${article_id}`}>
+      <article>
         <Typography variant="h3">{title}</Typography>
-      </Link>
 
-      <Typography>{body}</Typography>
-      <Typography>
-        <span>Topic:</span> {topic}
-      </Typography>
-      <Typography>
-        <span>Posted:</span> {formattedDate.toString()}
-      </Typography>
-      <Typography>
-        <span>Comment Count:</span> {comment_count}
-      </Typography>
-      <VoteUpdater votes={votes} id={article_id} path={'articles'} />
-    </article>
+        <Typography>{body}</Typography>
+        <Typography>
+          <span>Topic:</span> {topic}
+        </Typography>
+        <Typography>
+          <span>Posted:</span> {formattedDate.toString()}
+        </Typography>
+        <Typography>
+          <span>Comment Count:</span> {comment_count}
+        </Typography>
+        <VoteUpdater votes={votes} id={article_id} path={'articles'} />
+      </article>
+    </Link>
   );
 };
 

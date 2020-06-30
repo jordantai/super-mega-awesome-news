@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import * as api from '../utils/api';
+import { IconButton, Button, Typography } from '@material-ui/core';
+import { ThumbUpRounded, ThumbDownRounded } from '@material-ui/icons';
 
 class VoteUpdater extends Component {
   state = {
@@ -31,35 +33,39 @@ class VoteUpdater extends Component {
     const { userVotes, err } = this.state;
     return (
       <>
-        <p>Votes: {votes + userVotes}</p>
-        <button
+        <Typography>
+          <span>Votes:</span> {votes + userVotes}
+        </Typography>
+        <IconButton
+          aria-label="thumbs up"
+          color="secondary"
           onClick={() => {
             this.handleVoteChange(1);
           }}
           disabled={userVotes !== 0}
         >
-          <span role="img" aria-label="up arrow">
-            ↑
-          </span>
-        </button>
-        <button
+          <ThumbUpRounded />
+        </IconButton>
+        <IconButton
+          aria-label="thumbs down"
+          color="secondary"
           onClick={() => {
             this.handleVoteChange(-1);
           }}
           disabled={userVotes !== 0}
         >
-          <span role="img" aria-label="down arrow">
-            ↓
-          </span>
-        </button>
-        <button
+          <ThumbDownRounded />
+        </IconButton>
+        <Button
+          variant="contained"
+          color="secondary"
           onClick={() => {
             this.handleVoteChange(-userVotes);
           }}
           disabled={userVotes === 0}
         >
           Undo
-        </button>
+        </Button>
         {err && <p>{err}</p>}
       </>
     );

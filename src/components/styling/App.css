@@ -41,6 +41,10 @@ main.content article {
   margin: 15px 0 15px 0;
 }
 
+main.content article h3 {
+  padding: 10px 0 10px 0;
+}
+
 main.content article p {
   padding: 5px 0 5px 0;
 }
