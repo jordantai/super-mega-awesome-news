@@ -24,7 +24,8 @@ nav.navbar button {
   margin-top: 20px;
 }
 
-.topic-list .topic-card {
+.topic-list .topic-card,
+main.content article {
   /* background: linear-gradient(0deg, #2f5373 30%, #4b86b9 90%); */
   background-color: #2f5373;
   color: #fff;
@@ -33,6 +34,19 @@ nav.navbar button {
 
 main.content {
   margin: 20px;
+}
+
+main.content article {
+  padding: 0 15px 15px 15px;
+  margin: 15px 0 15px 0;
+}
+
+main.content article p {
+  padding: 5px 0 5px 0;
+}
+
+main.content article p span {
+  font-weight: 700;
 }
 
 /* .wrapper {

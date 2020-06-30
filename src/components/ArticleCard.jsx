@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import VoteUpdater from './VoteUpdater';
+import { Typography } from '@material-ui/core';
 
 const ArticleCard = ({
   article_id,
@@ -15,12 +16,19 @@ const ArticleCard = ({
   return (
     <article>
       <Link to={`/articles/${article_id}`}>
-        <h3>{title}</h3>
+        <Typography variant="h3">{title}</Typography>
       </Link>
-      <p>{body}</p>
-      <p>Topic: {topic}</p>
-      <p>Posted: {formattedDate.toString()}</p>
-      <p>Comment Count: {comment_count}</p>
+
+      <Typography>{body}</Typography>
+      <Typography>
+        <span>Topic:</span> {topic}
+      </Typography>
+      <Typography>
+        <span>Posted:</span> {formattedDate.toString()}
+      </Typography>
+      <Typography>
+        <span>Comment Count:</span> {comment_count}
+      </Typography>
       <VoteUpdater votes={votes} id={article_id} path={'articles'} />
     </article>
   );

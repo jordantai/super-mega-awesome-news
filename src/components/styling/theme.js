@@ -10,7 +10,13 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: ['Fredoka One'].join(','),
+    fontFamily: ['Fredoka One', '"Nunito"'].join(','),
+    h3: {
+      fontFamily: 'Fredoka One',
+    },
+    body1: {
+      fontFamily: 'Nunito',
+    },
   },
 });
 
