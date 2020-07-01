@@ -70,6 +70,7 @@ class ArticleList extends Component {
 
   render() {
     const { isLoading, err, sort_by, order } = this.state;
+    const { topic_slug } = this.props;
     if (isLoading)
       return (
         <Loader
@@ -85,6 +86,9 @@ class ArticleList extends Component {
       <main className="content">
         <Typography variant="h2" color="textSecondary">
           Articles
+        </Typography>
+        <Typography variant="h3" color="primary">
+          {topic_slug}
         </Typography>
         <Grid item container xs={12}>
           <FormControl className="sortby">
