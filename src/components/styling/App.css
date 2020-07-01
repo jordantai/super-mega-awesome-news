@@ -36,13 +36,21 @@ main.content {
   margin: 20px;
 }
 
+.article-list li {
+  margin: 0 5px 0 5px;
+}
+
 main.content article {
   padding: 0 15px 15px 15px;
   margin: 15px 0 15px 0;
 }
 
-main.content article h3 {
+main.content article h3,
+main.content article h4 {
   padding: 10px 0 10px 0;
+}
+main.content article h5 {
+  padding: 5px 0 5px 10px;
 }
 
 main.content article p {
@@ -51,6 +59,19 @@ main.content article p {
 
 main.content article p span {
   font-weight: 700;
+}
+
+.post-date {
+  /* float: right; */
+}
+
+article .read-more-btn {
+  margin-left: 10px;
+}
+
+.date-icon,
+.comment-icon {
+  margin: 0 5px -4px 0;
 }
 
 /* .wrapper {

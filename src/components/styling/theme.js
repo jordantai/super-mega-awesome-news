@@ -14,6 +14,12 @@ const theme = createMuiTheme({
     h3: {
       fontFamily: 'Fredoka One',
     },
+    h4: {
+      fontFamily: 'Fredoka One',
+    },
+    h5: {
+      fontFamily: 'Fredoka One',
+    },
     body1: {
       fontFamily: 'Nunito',
     },

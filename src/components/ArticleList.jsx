@@ -3,8 +3,7 @@ import * as api from '../utils/api';
 import ArticleCard from './ArticleCard';
 import Loader from 'react-loader-spinner';
 import ErrorDisplay from './ErrorDisplay';
-import { Button, Grid, Paper } from '@material-ui/core';
-//import SortArticles from './SortArticles';
+import { Grid, Paper, Typography } from '@material-ui/core';
 
 class ArticleList extends Component {
   state = {
@@ -61,6 +60,9 @@ class ArticleList extends Component {
     if (err) return <ErrorDisplay msg={err} />;
     return (
       <main className="content">
+        <Typography variant="h2" color="primary">
+          Articles
+        </Typography>
         <Grid item container xs={12}>
           <button
             onClick={() => {
@@ -105,15 +107,17 @@ class ArticleList extends Component {
             Sort by date posted descending
           </button>
         </Grid>
-        <ul>
-          <Grid item xs={12}>
+        <ul className="article-list">
+          <Grid container spacing={3}>
             {this.state.articles.map((article) => {
               return (
-                <li key={article.article_id}>
-                  <Paper>
-                    <ArticleCard {...article} />
-                  </Paper>
-                </li>
+                <Grid key={article.article_id} item xs={12} sm={6}>
+                  <li key={article.article_id}>
+                    <Paper>
+                      <ArticleCard {...article} />
+                    </Paper>
+                  </li>
+                </Grid>
               );
             })}
           </Grid>

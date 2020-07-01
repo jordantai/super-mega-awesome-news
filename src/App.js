@@ -28,7 +28,7 @@ class App extends Component {
         </Grid>
 
         <Router component={Grid}>
-          <ArticleList path="/" user={user} />
+          <ArticleList path="/articles" user={user} />
           <ArticleList path="/topic/:topic_slug/articles" user={user} />
           <Article path="/articles/:article_id/*" user={user} />
           <TopicList path="/topics" user={user} />
