@@ -8,6 +8,9 @@ const theme = createMuiTheme({
     secondary: {
       main: '#F24405',
     },
+    text: {
+      secondary: '#569cda',
+    },
   },
   typography: {
     fontFamily: ['Fredoka One', '"Nunito"'].join(','),
@@ -16,6 +19,7 @@ const theme = createMuiTheme({
     },
     h4: {
       fontFamily: 'Fredoka One',
+      fontSize: '1.5rem',
     },
     h5: {
       fontFamily: 'Fredoka One',

@@ -36,10 +36,6 @@ main.content {
   margin: 20px;
 }
 
-.article-list li {
-  margin: 0 5px 0 5px;
-}
-
 main.content article {
   padding: 0 15px 15px 15px;
   margin: 15px 0 15px 0;
@@ -61,8 +57,8 @@ main.content article p span {
   font-weight: 700;
 }
 
-.post-date {
-  /* float: right; */
+main.content article .snippet {
+  margin: 15px 0 15px 0;
 }
 
 article .read-more-btn {

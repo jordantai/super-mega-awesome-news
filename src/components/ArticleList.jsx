@@ -3,7 +3,16 @@ import * as api from '../utils/api';
 import ArticleCard from './ArticleCard';
 import Loader from 'react-loader-spinner';
 import ErrorDisplay from './ErrorDisplay';
-import { Grid, Paper, Typography } from '@material-ui/core';
+import {
+  Grid,
+  Paper,
+  Typography,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Button,
+} from '@material-ui/core';
 
 class ArticleList extends Component {
   state = {
@@ -45,6 +54,11 @@ class ArticleList extends Component {
     this.getArticles(sort_by, order);
   };
 
+  handleClick = (event) => {
+    console.log(event.target.value);
+    this.getArticles(event.target.value, event.target.value);
+  };
+
   render() {
     const { isLoading, err } = this.state;
     if (isLoading)
@@ -60,10 +74,23 @@ class ArticleList extends Component {
     if (err) return <ErrorDisplay msg={err} />;
     return (
       <main className="content">
-        <Typography variant="h2" color="primary">
+        <Typography variant="h2" color="textSecondary">
           Articles
         </Typography>
         <Grid item container xs={12}>
+          <FormControl>
+            <InputLabel>Sort by</InputLabel>
+            <Select>
+              <MenuItem value={'comment_count'}>Comment count</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl>
+            <InputLabel>Order</InputLabel>
+            <Select>
+              <MenuItem value={'asc'}>Ascending</MenuItem>
+            </Select>
+          </FormControl>
+          <Button onClick={this.handleClick}>Sort</Button>
           <button
             onClick={() => {
               this.handleSortByClick('comment_count', 'asc');

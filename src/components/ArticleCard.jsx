@@ -32,7 +32,7 @@ const ArticleCard = ({
         </Grid>
       </Grid>
 
-      <Typography>
+      <Typography className="snippet">
         {snippet}
         <Button
           className="read-more-btn"
