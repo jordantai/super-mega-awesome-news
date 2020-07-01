@@ -36,6 +36,16 @@ main.content {
   margin: 20px;
 }
 
+main.content .sortby,
+main.content .order {
+  min-width: 200px;
+  margin: 10px 20px 10px 0;
+}
+
+main.content .sortby input {
+  color: white;
+}
+
 main.content article {
   padding: 0 15px 15px 15px;
   margin: 15px 0 15px 0;

@@ -8,10 +8,8 @@ import App from './App';
 let responsiveTheme = responsiveFontSizes(theme);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ThemeProvider theme={responsiveTheme}>
-      <App />
-    </ThemeProvider>
-  </React.StrictMode>,
+  <ThemeProvider theme={responsiveTheme}>
+    <App />
+  </ThemeProvider>,
   document.getElementById('root')
 );

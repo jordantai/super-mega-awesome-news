@@ -25,11 +25,14 @@ class ArticleList extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const { topic_slug } = this.props;
-    const { sort_by, order } = this.state;
+    //const { sort_by, order } = this.state;
     const topicSlugHasChanged = prevProps.topic_slug !== topic_slug;
-    const sortByHasChanged = prevState.sort_by !== sort_by;
-    const orderHasChanged = prevState.sort_by !== order;
-    if (topicSlugHasChanged || sortByHasChanged || orderHasChanged) {
+    // const sortByHasChanged = prevState.sort_by !== sort_by;
+    // const orderHasChanged = prevState.sort_by !== order;
+    // if (topicSlugHasChanged || sortByHasChanged || orderHasChanged) {
+    //   this.getArticles();
+    // }
+    if (topicSlugHasChanged) {
       this.getArticles();
     }
   }
@@ -50,17 +53,23 @@ class ArticleList extends Component {
       });
   };
 
-  handleSortByClick = (sort_by, order) => {
+  // handleSortByClick = (sort_by, order) => {
+  //   this.getArticles(sort_by, order);
+  // };
+
+  handleSortByChange = (event) => {
+    this.setState({ sort_by: event.target.value });
+  };
+  handleOrderChange = (event) => {
+    this.setState({ order: event.target.value });
+  };
+
+  handleClick = (sort_by, order) => {
     this.getArticles(sort_by, order);
   };
 
-  handleClick = (event) => {
-    console.log(event.target.value);
-    this.getArticles(event.target.value, event.target.value);
-  };
-
   render() {
-    const { isLoading, err } = this.state;
+    const { isLoading, err, sort_by, order } = this.state;
     if (isLoading)
       return (
         <Loader
@@ -78,20 +87,41 @@ class ArticleList extends Component {
           Articles
         </Typography>
         <Grid item container xs={12}>
-          <FormControl>
+          <FormControl className="sortby">
             <InputLabel>Sort by</InputLabel>
-            <Select>
+            <Select
+              style={{ color: '#569cda' }}
+              value={sort_by}
+              onChange={this.handleSortByChange}
+            >
               <MenuItem value={'comment_count'}>Comment count</MenuItem>
+              <MenuItem value={'votes'}>Votes</MenuItem>
+              <MenuItem value={'created_at'}>Date created</MenuItem>
             </Select>
           </FormControl>
-          <FormControl>
+          <FormControl className="order">
             <InputLabel>Order</InputLabel>
-            <Select>
+            <Select
+              style={{ color: '#569cda' }}
+              value={order}
+              onChange={this.handleOrderChange}
+            >
               <MenuItem value={'asc'}>Ascending</MenuItem>
+              <MenuItem value={'desc'}>Descending</MenuItem>
             </Select>
           </FormControl>
-          <Button onClick={this.handleClick}>Sort</Button>
-          <button
+          <Button
+            variant="contained"
+            color="primary"
+            size="small"
+            onClick={() => {
+              this.handleClick(sort_by, order);
+            }}
+          >
+            Sort
+          </Button>
+
+          {/* <button
             onClick={() => {
               this.handleSortByClick('comment_count', 'asc');
             }}
@@ -132,7 +162,7 @@ class ArticleList extends Component {
             }}
           >
             Sort by date posted descending
-          </button>
+          </button> */}
         </Grid>
         <ul className="article-list">
           <Grid container spacing={3}>
