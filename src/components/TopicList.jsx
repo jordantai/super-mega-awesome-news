@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from '@reach/router';
 import ErrorDisplay from './ErrorDisplay';
 import * as api from '../utils/api';
-import { Card, Button, Grid, CardContent } from '@material-ui/core';
+import { Card, Button, Grid, CardContent, Typography } from '@material-ui/core';
 
 class TopicList extends Component {
   state = {
@@ -36,19 +36,21 @@ class TopicList extends Component {
             return (
               <Grid key={slug} item xs={12} sm={6}>
                 <li>
-                  <Link to={`/topic/${slug}/articles`}>
-                    <Card variant="outlined" className="topic-card">
-                      <CardContent>
-                        <h3>{slug.toUpperCase()}</h3>
-                        <p>{description}</p>
-                        <Grid container item xs={12} justify="flex-end">
+                  <Card variant="outlined" className="topic-card">
+                    <CardContent>
+                      <Link to={`/topic/${slug}/articles`}>
+                        <Typography variant="h3">{slug}</Typography>
+                      </Link>
+                      <Typography>{description}</Typography>
+                      <Grid container item xs={12} justify="flex-end">
+                        <Link to={`/topic/${slug}/articles`}>
                           <Button variant="outlined" color="secondary">
                             View Articles
                           </Button>
-                        </Grid>
-                      </CardContent>
-                    </Card>
-                  </Link>
+                        </Link>
+                      </Grid>
+                    </CardContent>
+                  </Card>
                 </li>
               </Grid>
             );
