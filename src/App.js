@@ -8,6 +8,7 @@ import Article from './components/Article';
 import TopicList from './components/TopicList';
 import ErrorDisplay from './components/ErrorDisplay';
 import { Grid } from '@material-ui/core';
+import FeaturedArticle from './components/FeaturedArticle';
 
 class App extends Component {
   state = {
@@ -28,6 +29,7 @@ class App extends Component {
         </Grid>
 
         <Router component={Grid}>
+          <FeaturedArticle path="/" user={user} />
           <ArticleList path="/articles" user={user} />
           <ArticleList path="/topic/:topic_slug/articles" user={user} />
           <Article path="/articles/:article_id/*" user={user} />

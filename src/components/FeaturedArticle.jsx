@@ -5,9 +5,8 @@ import CommentList from './CommentList';
 import VoteUpdater from './VoteUpdater';
 import Loader from 'react-loader-spinner';
 import ErrorDisplay from './ErrorDisplay';
-import { Typography, Grid, Button, Box } from '@material-ui/core';
 
-class Article extends Component {
+class FeaturedArticle extends Component {
   state = {
     article: {},
     isLoading: true,
@@ -19,9 +18,14 @@ class Article extends Component {
   }
 
   getArticle = () => {
-    const { article_id } = this.props;
+    const article_id = (min, max) => {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min;
+    };
+
     api
-      .fetchArticle(article_id)
+      .fetchArticle(article_id(1, 36))
       .then((article) => {
         this.setState({ article, isLoading: false });
       })
@@ -56,9 +60,10 @@ class Article extends Component {
     if (err) return <ErrorDisplay msg={err} />;
     return (
       <main className="content">
+        <h2>Featured Article</h2>
         <article>
-          <Typography variant="h3">{title}</Typography>
-          <Typography>{body}</Typography>
+          <h3>{title}</h3>
+          <p>{body}</p>
           <p>Topic: {topic}</p>
           <p>Author: {author}</p>
           <p>Posted: {formattedDate.toString()}</p>
@@ -78,4 +83,4 @@ class Article extends Component {
   }
 }
 
-export default Article;
+export default FeaturedArticle;
