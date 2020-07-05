@@ -4,6 +4,7 @@ import CommentCard from './CommentCard';
 import Loader from 'react-loader-spinner';
 import CommentAdder from './CommentAdder';
 import ErrorDisplay from './ErrorDisplay';
+import { Box } from '@material-ui/core';
 
 class CommentList extends Component {
   state = {
@@ -64,7 +65,7 @@ class CommentList extends Component {
       );
     if (err) return <ErrorDisplay msg={err} />;
     return (
-      <>
+      <Box bgcolor="primary.main">
         <CommentAdder
           user={user}
           article_id={article_id}
@@ -88,7 +89,7 @@ class CommentList extends Component {
             );
           })}
         </ul>
-      </>
+      </Box>
     );
   }
 }
