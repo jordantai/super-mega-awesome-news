@@ -42,19 +42,23 @@ class Article extends Component {
       topic,
       author,
       created_at,
-      comment_count,
     } = this.state.article;
     const formattedDate = new Date(created_at);
     const { isLoading, err } = this.state;
     if (isLoading)
       return (
-        <Loader
-          type="BallTriangle"
-          color="#00BFFF"
-          height={100}
-          width={100}
-          timeout={6000}
-        />
+        <Grid container justify="center">
+          <Grid item xs={12}>
+            <Loader
+              className="loader"
+              type="Puff"
+              color="#00BFFF"
+              height={500}
+              width={500}
+              timeout={6000}
+            />
+          </Grid>
+        </Grid>
       );
     if (err) return <ErrorDisplay msg={err} />;
     return (
@@ -93,7 +97,7 @@ class Article extends Component {
             <Button variant="contained" color="primary">
               <Typography variant="h4">
                 <ChatRoundedIcon className="comment-icon" />
-                Comments: {comment_count}
+                Comments
                 <KeyboardArrowDownRoundedIcon />
               </Typography>
             </Button>

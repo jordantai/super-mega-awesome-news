@@ -25,13 +25,7 @@ class ArticleList extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const { topic_slug } = this.props;
-    //const { sort_by, order } = this.state;
     const topicSlugHasChanged = prevProps.topic_slug !== topic_slug;
-    // const sortByHasChanged = prevState.sort_by !== sort_by;
-    // const orderHasChanged = prevState.sort_by !== order;
-    // if (topicSlugHasChanged || sortByHasChanged || orderHasChanged) {
-    //   this.getArticles();
-    // }
     if (topicSlugHasChanged) {
       this.getArticles();
     }
@@ -53,10 +47,6 @@ class ArticleList extends Component {
       });
   };
 
-  // handleSortByClick = (sort_by, order) => {
-  //   this.getArticles(sort_by, order);
-  // };
-
   handleSortByChange = (event) => {
     this.setState({ sort_by: event.target.value });
   };
@@ -73,13 +63,18 @@ class ArticleList extends Component {
     const { topic_slug } = this.props;
     if (isLoading)
       return (
-        <Loader
-          type="BallTriangle"
-          color="#00BFFF"
-          height={100}
-          width={100}
-          timeout={6000}
-        />
+        <Grid container justify="center">
+          <Grid item xs={12}>
+            <Loader
+              className="loader"
+              type="Puff"
+              color="#00BFFF"
+              height={500}
+              width={500}
+              timeout={6000}
+            />
+          </Grid>
+        </Grid>
       );
     if (err) return <ErrorDisplay msg={err} />;
     return (
@@ -124,49 +119,6 @@ class ArticleList extends Component {
           >
             Sort
           </Button>
-
-          {/* <button
-            onClick={() => {
-              this.handleSortByClick('comment_count', 'asc');
-            }}
-          >
-            Sort by comment count ascending
-          </button>
-          <button
-            onClick={() => {
-              this.handleSortByClick('comment_count', 'desc');
-            }}
-          >
-            Sort by comment count descending
-          </button>
-          <button
-            onClick={() => {
-              this.handleSortByClick('votes', 'asc');
-            }}
-          >
-            Sort by votes ascending
-          </button>
-          <button
-            onClick={() => {
-              this.handleSortByClick('votes', 'desc');
-            }}
-          >
-            Sort by votes descending
-          </button>
-          <button
-            onClick={() => {
-              this.handleSortByClick('created_at', 'asc');
-            }}
-          >
-            Sort by date posted ascending
-          </button>
-          <button
-            onClick={() => {
-              this.handleSortByClick('created_at', 'desc');
-            }}
-          >
-            Sort by date posted descending
-          </button> */}
         </Grid>
         <ul className="article-list">
           <Grid container spacing={3}>
