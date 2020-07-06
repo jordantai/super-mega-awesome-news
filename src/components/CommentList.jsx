@@ -4,7 +4,7 @@ import CommentCard from './CommentCard';
 import Loader from 'react-loader-spinner';
 import CommentAdder from './CommentAdder';
 import ErrorDisplay from './ErrorDisplay';
-import { Box } from '@material-ui/core';
+import { Box, Grid, Button } from '@material-ui/core';
 
 class CommentList extends Component {
   state = {
@@ -65,31 +65,40 @@ class CommentList extends Component {
       );
     if (err) return <ErrorDisplay msg={err} />;
     return (
-      <Box bgcolor="primary.main">
-        <CommentAdder
-          user={user}
-          article_id={article_id}
-          addCommentToState={this.addCommentToState}
-        />
-        <ul>
-          {comments.map((comment) => {
-            return (
-              <li key={comment.comment_id} className="comment">
-                <CommentCard {...comment} />
-                {user.username === comment.author && (
-                  <button
-                    onClick={() => {
-                      this.handleCommentDelete(comment.comment_id);
-                    }}
-                  >
-                    Delete Comment
-                  </button>
-                )}
-              </li>
-            );
-          })}
-        </ul>
-      </Box>
+      <Grid container>
+        <Grid item xs={12}>
+          <Box bgcolor="primary.main">
+            <CommentAdder
+              user={user}
+              article_id={article_id}
+              addCommentToState={this.addCommentToState}
+            />
+
+            <Grid item>
+              <ul>
+                {comments.map((comment) => {
+                  return (
+                    <li key={comment.comment_id} className="comment">
+                      <CommentCard {...comment} />
+                      {user.username === comment.author && (
+                        <Button
+                          variant="contained"
+                          color="secondary"
+                          onClick={() => {
+                            this.handleCommentDelete(comment.comment_id);
+                          }}
+                        >
+                          Delete Comment
+                        </Button>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </Grid>
+          </Box>
+        </Grid>
+      </Grid>
     );
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../utils/api';
+import { TextareaAutosize, Button, Grid, Typography } from '@material-ui/core';
 
 class CommentAdder extends Component {
   state = {
@@ -31,19 +32,27 @@ class CommentAdder extends Component {
     const username = user.username;
     return (
       <form onSubmit={this.handleSubmitForm}>
-        <label htmlFor="body">
-          {username} post a message
-          <textarea
-            onChange={this.handleInputChange}
-            name="body"
-            id=""
-            cols="60"
-            rows="5"
-            value={body}
-            required
-          />
-        </label>
-        <button>Post</button>
+        <Grid container alignItems="flex-end">
+          <Grid item xs={12}>
+            <Typography>{username} post a message:</Typography>
+          </Grid>
+          <Grid item xs={12} sm={10}>
+            <TextareaAutosize
+              aria-label="message input"
+              placeholder="Message here"
+              onChange={this.handleInputChange}
+              name="body"
+              rowsMin={8}
+              value={body}
+              required
+            />
+          </Grid>
+          <Grid item>
+            <Button variant="contained" color="secondary">
+              Post
+            </Button>
+          </Grid>
+        </Grid>
       </form>
     );
   }
