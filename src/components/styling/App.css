@@ -1,0 +1,125 @@
+header.main-header .logo {
+  width: 70px;
+  padding: 5px 0 5px 0;
+}
+
+.main-header .app-bar {
+  background: linear-gradient(
+    to bottom,
+    rgb(243, 63, 22) 0%,
+    rgba(191, 49, 17, 1) 100%
+  );
+}
+
+.main-header .login {
+  padding-top: 10px;
+  text-align: center;
+}
+
+nav.navbar {
+  margin: 100px 0 20px 20px;
+  color: white;
+}
+
+nav.navbar button {
+  margin-right: 10px;
+}
+
+.router-div {
+  width: 100%;
+}
+
+.topic-list {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.topic-list .topic-card,
+main.content article {
+  background-color: #2f5373;
+  color: #fff;
+  border: 1px solid #569cda;
+}
+
+main.content {
+  margin: 20px;
+}
+
+main.content .sortby,
+main.content .order {
+  min-width: 200px;
+  margin: 10px 20px 10px 0;
+}
+
+main.content .sortby input {
+  color: white;
+}
+
+main.content article {
+  padding: 0 15px 15px 15px;
+  margin: 15px 0 15px 0;
+}
+
+main.content article h3,
+main.content article h4 {
+  padding: 10px 0 10px 0;
+}
+main.content article h5 {
+  padding: 5px 0 5px 10px;
+}
+
+main.content article p {
+  padding: 5px 0 5px 0;
+}
+
+main.content article p span {
+  font-weight: 700;
+}
+
+main.content article .snippet {
+  margin: 15px 0 15px 0;
+}
+
+article .read-more-btn {
+  margin-left: 10px;
+}
+
+.date-icon,
+.comment-icon {
+  margin: 0 5px -4px 0;
+}
+
+.comments {
+  color: white;
+}
+
+.comments ul {
+  margin: 15px;
+  padding-bottom: 15px;
+}
+
+.comments li {
+  margin-top: 15px;
+  padding: 15px;
+}
+
+.comments form {
+  margin: 0 10px 20px 15px;
+  padding-top: 20px;
+}
+
+.comments textarea {
+  width: 95%;
+}
+
+.comment {
+  background-color: #bf3111;
+}
+
+.comment p {
+  margin: 10px 0 10px 0;
+}
+
+.loader {
+  text-align: center;
+}

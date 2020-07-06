@@ -1,24 +1,34 @@
 import React from 'react';
 import { Link } from '@reach/router';
+import { AppBar, Toolbar, Grid, Typography, Box } from '@material-ui/core';
+import logo from './styling/img/SMAN-logo.png';
+import FaceRoundedIcon from '@material-ui/icons/FaceRounded';
 
 const Header = ({ user }) => {
-  const { username, avatar_url } = user;
+  const { username } = user;
   return (
     <header className="main-header">
-      <Link to="/">
-        <h1 className="logo">Super Mega Awesome News</h1>
-      </Link>
-      <h2>
-        The Superest Megaest Awesomest site on the planet for stories, news and
-        articles!
-      </h2>
-      <section className="user">
-        <button>
-          <img src={avatar_url} alt="user avatar" />
-          <span>▾</span>
-        </button>
-        <p>{username}</p>
-      </section>
+      <AppBar position="fixed" color="inherit" className="app-bar">
+        <Toolbar>
+          <Grid container justify="space-between">
+            <Grid item xs={9}>
+              <Link to="/">
+                <img
+                  className="logo"
+                  alt="Super Mega Awesome News logo"
+                  src={logo}
+                />
+              </Link>
+            </Grid>
+            <Grid item>
+              <Box className="login">
+                <FaceRoundedIcon />
+                <Typography>{username}</Typography>
+              </Box>
+            </Grid>
+          </Grid>
+        </Toolbar>
+      </AppBar>
     </header>
   );
 };
