@@ -5,6 +5,10 @@ import CommentList from './CommentList';
 import VoteUpdater from './VoteUpdater';
 import Loader from 'react-loader-spinner';
 import ErrorDisplay from './ErrorDisplay';
+import { Typography, Grid, Button, Box } from '@material-ui/core';
+import CalendarTodayRoundedIcon from '@material-ui/icons/CalendarTodayRounded';
+import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
+import KeyboardArrowDownRoundedIcon from '@material-ui/icons/KeyboardArrowDownRounded';
 
 class Article extends Component {
   state = {
@@ -56,17 +60,43 @@ class Article extends Component {
     return (
       <main className="content">
         <article>
-          <h3>{title}</h3>
-          <p>{body}</p>
-          <p>Topic: {topic}</p>
-          <p>Author: {author}</p>
-          <p>Posted: {formattedDate.toString()}</p>
-          <p>Comments: {comment_count}</p>
+          <Grid container justify="space-between">
+            <Grid item xs={9}>
+              <Typography variant="h3">{title}</Typography>
+            </Grid>
+            <Grid item>
+              <Typography className="post-date">
+                <CalendarTodayRoundedIcon className="date-icon" />
+                {formattedDate.toDateString()}
+              </Typography>
+            </Grid>
+
+            <Typography>{body}</Typography>
+
+            <Grid container justify="space-between">
+              <Grid item xs={12} sm={6}>
+                <Link to={`/topic/${topic}/articles`}>
+                  <Box bgcolor="primary.main">
+                    <Typography variant="h5">{topic}</Typography>
+                  </Box>
+                </Link>
+              </Grid>
+              <Grid item>
+                <Typography>Author: {author}</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
           <VoteUpdater votes={votes} id={article_id} path={'articles'} />
         </article>
         <section className="comments">
           <Link to="comments">
-            <h3>Comments</h3>
+            <Button variant="contained" color="primary">
+              <Typography variant="h4">
+                <ChatRoundedIcon className="comment-icon" />
+                Comments: {comment_count}
+                <KeyboardArrowDownRoundedIcon />
+              </Typography>
+            </Button>
           </Link>
           <Router>
             <CommentList path="comments" user={this.props.user} />

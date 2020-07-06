@@ -1,4 +1,96 @@
-.wrapper {
+header.main-header .logo {
+  width: 70px;
+  padding: 5px 0 5px 0;
+}
+
+.main-header .app-bar {
+  background: linear-gradient(
+    to bottom,
+    rgb(243, 63, 22) 0%,
+    rgba(191, 49, 17, 1) 100%
+  );
+}
+
+.main-header .login {
+  padding-top: 10px;
+  text-align: center;
+}
+
+nav.navbar {
+  margin: 100px 0 20px 20px;
+  color: white;
+}
+
+nav.navbar button {
+  margin-right: 10px;
+}
+
+.router-div {
+  width: 100%;
+}
+
+.topic-list {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.topic-list .topic-card,
+main.content article {
+  /* background: linear-gradient(0deg, #2f5373 30%, #4b86b9 90%); */
+  background-color: #2f5373;
+  color: #fff;
+  border: 1px solid #569cda;
+}
+
+main.content {
+  margin: 20px;
+}
+
+main.content .sortby,
+main.content .order {
+  min-width: 200px;
+  margin: 10px 20px 10px 0;
+}
+
+main.content .sortby input {
+  color: white;
+}
+
+main.content article {
+  padding: 0 15px 15px 15px;
+  margin: 15px 0 15px 0;
+}
+
+main.content article h3,
+main.content article h4 {
+  padding: 10px 0 10px 0;
+}
+main.content article h5 {
+  padding: 5px 0 5px 10px;
+}
+
+main.content article p {
+  padding: 5px 0 5px 0;
+}
+
+main.content article p span {
+  font-weight: 700;
+}
+
+main.content article .snippet {
+  margin: 15px 0 15px 0;
+}
+
+article .read-more-btn {
+  margin-left: 10px;
+}
+
+.date-icon,
+.comment-icon {
+  margin: 0 5px -4px 0;
+}
+
+/* .wrapper {
   display: flex;
   justify-content: center;
   font-family: 'Comfortaa', cursive;
@@ -23,20 +115,9 @@ header.main-header {
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-}
+} */
 
-header.main-header .logo {
-  width: 50px;
-  height: 50px;
-  font-size: 10px;
-  border: solid 3px #1b1159;
-  background-color: rgb(238, 236, 236);
-  border-radius: 5px;
-  padding: 5px;
-  color: #7833a6;
-}
-
-header.main-header a {
+/* header.main-header a {
   text-decoration: none;
   color: black;
 }
@@ -85,13 +166,6 @@ nav.navbar a {
   text-decoration: none;
 }
 
-main.content {
-  grid-area: main;
-  color: white;
-  padding: 20px 10px 10px 10px;
-  background-color: #251973;
-}
-
 main.content .comments {
   background-color: #f29999;
   color: white;
@@ -116,9 +190,4 @@ main.content .comments {
     'footer footer footer footer';
 }
 
-ul,
-li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+ */
