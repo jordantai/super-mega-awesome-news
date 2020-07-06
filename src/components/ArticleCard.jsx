@@ -65,7 +65,6 @@ const ArticleCard = ({
           </Typography>
         </Grid>
       </Grid>
-      {/* <VoteUpdater votes={votes} id={article_id} path={'articles'} /> */}
     </article>
   );
 };

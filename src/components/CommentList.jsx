@@ -55,13 +55,18 @@ class CommentList extends Component {
     const { user, article_id } = this.props;
     if (isLoading)
       return (
-        <Loader
-          type="BallTriangle"
-          color="#00BFFF"
-          height={100}
-          width={100}
-          timeout={6000}
-        />
+        <Grid container justify="center">
+          <Grid item xs={12}>
+            <Loader
+              className="loader"
+              type="Puff"
+              color="#00BFFF"
+              height={500}
+              width={500}
+              timeout={6000}
+            />
+          </Grid>
+        </Grid>
       );
     if (err) return <ErrorDisplay msg={err} />;
     return (

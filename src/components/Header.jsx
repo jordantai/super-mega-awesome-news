@@ -29,14 +29,6 @@ const Header = ({ user }) => {
           </Grid>
         </Toolbar>
       </AppBar>
-
-      {/* <section className="user">
-        <button>
-          <img src={avatar_url} alt="user avatar" />
-          <span>▾</span>
-        </button>
-        <p>{username}</p>
-      </section> */}
     </header>
   );
 };

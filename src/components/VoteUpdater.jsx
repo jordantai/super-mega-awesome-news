@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import * as api from '../utils/api';
 import { IconButton, Button, Typography } from '@material-ui/core';
-import { ThumbUpRounded, ThumbDownRounded } from '@material-ui/icons';
+import ThumbUpAltRoundedIcon from '@material-ui/icons/ThumbUpAltRounded';
+import ThumbDownAltRoundedIcon from '@material-ui/icons/ThumbDownAltRounded';
 
 class VoteUpdater extends Component {
   state = {
@@ -44,7 +45,7 @@ class VoteUpdater extends Component {
           }}
           disabled={userVotes !== 0}
         >
-          <ThumbUpRounded />
+          <ThumbUpAltRoundedIcon />
         </IconButton>
         <IconButton
           aria-label="thumbs down"
@@ -54,7 +55,7 @@ class VoteUpdater extends Component {
           }}
           disabled={userVotes !== 0}
         >
-          <ThumbDownRounded />
+          <ThumbDownAltRoundedIcon />
         </IconButton>
         <Button
           variant="contained"

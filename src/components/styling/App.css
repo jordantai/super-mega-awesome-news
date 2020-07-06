@@ -119,3 +119,7 @@ article .read-more-btn {
 .comment p {
   margin: 10px 0 10px 0;
 }
+
+.loader {
+  text-align: center;
+}

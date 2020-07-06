@@ -31,7 +31,7 @@ class CommentAdder extends Component {
     const { body } = this.state;
     const username = user.username;
     return (
-      <form onSubmit={this.handleSubmitForm}>
+      <form>
         <Grid container alignItems="flex-end">
           <Grid item xs={12}>
             <Typography>{username} post a message:</Typography>
@@ -48,7 +48,11 @@ class CommentAdder extends Component {
             />
           </Grid>
           <Grid item>
-            <Button variant="contained" color="secondary">
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={this.handleSubmitForm}
+            >
               Post
             </Button>
           </Grid>

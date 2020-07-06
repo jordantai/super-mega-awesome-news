@@ -14,7 +14,6 @@ class App extends Component {
   state = {
     user: {
       username: 'tickle122',
-      avatar_url: 'https://img.icons8.com/color/20/000000/avatar.png',
     },
   };
 
